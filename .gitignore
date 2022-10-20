@@ -1,0 +1,5 @@
+SearchTree.sln
+.vs
+x64/*
+SearchTree/*
+!SearchTree/SearchTree.cpp

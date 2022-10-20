@@ -1,0 +1,97 @@
+vector <int> vector1;
+	// tree elements are not repeated
+	SearchTree <int>* object1 = new SearchTree<int>;
+	cout << *object1 << endl; //will print an empty tree
+	
+	SearchTree <int>* object2 = new SearchTree<int>(7);
+	cout << *object2 << endl; //will print the tree's contents ․ In this example, the value sent by the constructor
+
+	SearchTree <int>* object3 = new SearchTree<int>{ 500, 250, 750, 100, 800, 300 };
+	cout << *object3 << endl; //will print the contents of the tree, initializing the elements of the directed list
+
+	SearchTree <int>* object4 = new SearchTree<int>(*object3);
+	cout << *object4 << endl;//copies the Tress through the copy constructor
+
+	SearchTree <int>* object5 = new SearchTree<int>(move(*object4));//moved object4 Tress to object5
+	cout <<"it's  object 4" << endl<< *object4 << endl;
+	cout <<"it's  new object" << endl<< *object5 << endl;
+	
+	object3->~SearchTree();
+	cout << *object3; // the tree is empty after calling the destructor
+
+	*object3 = *object5;
+	cout <<"copy   object  is"<< endl << *object3;
+
+	*object3 = move(*object2);
+	cout << "moved object  " << endl << *object2 << endl;
+	cout << "new object   " <<endl<< *object3 <<endl;
+
+	
+	SearchTree <int>* object6 = new SearchTree<int>{ 500, 250, 750, 100, 800, 300 };
+	SearchTree <int>* object7 = new SearchTree<int>{ 500, 250, 750, 100, 800, 300 };
+	SearchTree <int>* object8 = new SearchTree<int>{ 300, 700, 900, 231, 134, 514 };
+
+	if (*object6 == *object7)
+		cout << "True" << endl;
+	else
+		cout << "False"<<endl;
+	if (*object6 == *object8)
+		cout << "True" <<endl;
+	else
+		cout << "False" << endl;
+
+	*object1 = *object3 + *object6;
+	cout << "+ operator" << endl << *object1;
+	
+	object2->insert(1);//insert 
+	object2->insert(2);//insert
+	object2->insert(3);//insert
+
+	cout <<"after insert  object2 " << endl<< *object2<<endl;
+
+	*object1 += *object2;
+	cout << "+= is" << endl << *object1 <<endl;
+
+	object2->clear(object2->my_list);
+	cout << "after clear  object2" << endl << *object2 << endl;
+
+	cout << endl << endl <<"befor   " << endl << *object1 << endl;
+	object1->erase(object1->my_list, 750);
+	cout << "after erse(750) "<<endl << *object1 <<endl;
+	
+	cout << "count object1         " <<  object1->get_number_of_nodes(object1->my_list) << endl;
+
+	cout << "preorder " << endl;
+	object1->preorder(object1->my_list); 
+
+	cout << endl << "inorder" << endl;
+	object1->inorder(object1->my_list);
+
+	cout << endl << "postorder" << endl;
+	object1->postorder(object1->my_list);
+
+	cout << endl << "levelorder" << endl;
+	object1->levelorder(object1->my_list);
+
+	cout << endl << "get root data ";
+	object1->get_root_data(object1->my_list);
+
+	if (object1->contains(800))
+		cout << "there is such a value" <<endl;
+	else 
+		cout << "there is'nt such a value" << endl;
+
+	if (object1->contains(8030))
+		cout << "there is such a value" << endl;
+	else
+		cout << "there is'nt such a value" << endl;
+
+	SearchTree <int>* object9 = new SearchTree<int>{ 3030, 7100, 9005, 2311, 1324, 512 };
+	cout << "befor merge" << endl;
+	object1->levelorder(object1->my_list);
+	object1->merge(object9->my_list);
+	cout << "after merge" << endl;
+	object1->levelorder(object1->my_list);
+	cout << endl;
+
+
