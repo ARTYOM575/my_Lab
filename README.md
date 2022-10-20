@@ -1,1 +1,1 @@
-# my_Lab
+This program works according to the following principle. You enter numbers, and depending on the previous entered number, it branches, large numbers to the right, small numbers to the left․ Tree elements are not repeated here․ You can delete tree elements, you can print tree elements in different ways, etc. To get to know in more detail, you can run the program yourself, following the syntax I announced.
